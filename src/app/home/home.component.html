@@ -1,0 +1,140 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">
+                            Respuestas de usuarios
+                        </h4>
+                        <p class="category">
+                            Grafico de respuestas positivas o negativas
+                        </p>
+                    </div>
+                    <div class="content">
+                        <canvas style="padding: 20px;" baseChart class="chart" [data]="pieChartData"
+                            [type]="pieChartType" [options]="pieChartOptions">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">
+                            Usuarios activos
+                        </h4>
+                        <p class="category">
+                            Usuarios activos por genero
+                        </p>
+                    </div>
+                    <div class="content">
+                        <canvas baseChart class="chart" [data]="lineChartData" [options]="lineChartOptions"
+                            [type]="lineChartType" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 card">
+                <div class="header">
+                    <h4 class="title">Respuestas</h4>
+                    <p class="category">Respuestas positivas, negativas</p>
+                </div>
+                <div class="content">
+                    <div class="table-full-width">
+                        <table class="table">
+                            <thead>
+                                <th>Comentario</th>
+                                <th>Tipo</th>
+                                <th>Visto</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let comment of commentsUsers">
+                                    <td>{{comment.Comentario}}</td>
+                                    <td>{{comment.Tipo  == 1 ? 'Positivo': 'Negativo'}}</td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="checkbox2" type="checkbox" checked>
+                                            <label for="checkbox2"> </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">
+                            Usuarios por ciudad
+                        </h4>
+                        <div class="content">
+                            <canvas style="padding: 20px;" baseChart [data]="barChartData" [options]="barChartOptions"
+                                [type]="barChartType"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Productos</h4>
+                        <p class="category">Lista de productos que mas se solicitaron</p>
+                    </div>
+                    <div class="content">
+                        <div class="table-full-width">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Pañales</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove"
+                                                class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Toallitas</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove"
+                                                class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Otros</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove"
+                                                class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
